@@ -2,7 +2,8 @@ import { getServerSession } from 'next-auth'
 import React from 'react'
 import Link from 'next/link'
 import { buttonVariants } from './ui/Button'
-import SignInButton from './SignInButton'
+import SignInButton from '@/components/SignInButton'
+import SignOutBotton from '@/components/SignOutButton'
 
 type Props = {}
 
