@@ -7,7 +7,7 @@ interface Props
     VariantProps<typeof largeHeadingVariants> {}
 
 const largeHeadingVariants = cva(
-  "text-black dark:text-whit text-center lg:text-left font-extrabold leading-tight tracking-tighter",
+  "text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter",
   {
     variants: {
       size: {
