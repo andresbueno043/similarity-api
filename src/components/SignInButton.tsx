@@ -1,32 +1,34 @@
 "use client";
 
-import React, { useState } from 'react'
-import { Button } from './ui/Button';
-import { signIn } from 'next-auth/react';
-import toast from "react-hot-toast"
+import React, { useState } from "react";
+import { Button } from "./ui/Button";
+import { signIn } from "next-auth/react";
+import { toast } from "@/components/ui/toast";
 
-type Props = {}
+type Props = {};
 
 const SignInButton = (props: Props) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const signInWithGoogle = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
-      await signIn('google')
+      await signIn("google");
     } catch (error) {
-      // toast({
-      //   title: "Error signing in!",
-      //   message: "Please try again later",
-      //   type: "error",  
-      // })
+      toast({
+        title: "Error signing in!",
+        message: "Please try again later",
+        type: "error",
+      });
     }
-  }
+  };
 
   return (
-    <Button onClick={signInWithGoogle} isLoading={isLoading}>Sign In</Button>
-  )
-}
+    <Button onClick={signInWithGoogle} isLoading={isLoading}>
+      Sign In
+    </Button>
+  );
+};
 
-export default SignInButton
+export default SignInButton;
