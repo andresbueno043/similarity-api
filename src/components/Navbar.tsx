@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { buttonVariants } from './ui/Button'
 import SignInButton from '@/components/SignInButton'
 import SignOutBotton from '@/components/SignOutButton'
+import ThemeToggle from '@/components/ThemeToggle'
 
 type Props = {}
 
@@ -18,16 +19,17 @@ const Navbar = (props: Props) => {
       </div>
 
       <div className='hidden md:flex gap-4'>
-        <ThemeTogggle />
+        <ThemeToggle />
         <Link href="/documentation" className={buttonVariants({variant: "ghost"})}>
           Documentation
         </Link>
-        {session ? (<>
+        {/* {session ? (<>
           <Link className={buttonVariants({variant: "ghost"})} href="/dashboard">
             Dashboard
           </Link>
           <SignOutButton />
-        </>) : <SignInButton/>}
+        </>) : <SignInButton/>} */}
+        <SignInButton />
       </div>
     </div>
   </div>
