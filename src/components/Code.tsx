@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import type Language from "prism-react-renderer";
+import type { Language } from "prism-react-renderer";
 import { useTheme } from "next-themes";
 import darkTheme from "prism-react-renderer/themes/nightOwl";
 import lightTheme from "prism-react-renderer/themes/nightOwlLight";
@@ -38,7 +38,7 @@ const Code = ({ code, show, language, animationDelay, animated }: Props) => {
   }, [code, show, animated, animationDelay]);
 
   //number of lines
-  const lines = text.split(/\r\n|\r|\n/);
+  const lines = text.split(/\r\n|\r|\n/).length;
 
   const theme = applicationTheme === "light" ? lightTheme : darkTheme;
 
@@ -51,7 +51,7 @@ const Code = ({ code, show, language, animationDelay, animated }: Props) => {
             'transition-all w-fit bg-transparent duration-100 py-0 no-scrollbar'
           }
           style={{
-            maxHeight: show ? lines.length * 24 : 0,
+            maxHeight: show ? lines * 24 : 0,
             opacity: show ? 1 : 0,
           }}>
           {tokens.map((line, i) => {
